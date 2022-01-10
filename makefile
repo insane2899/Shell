@@ -8,5 +8,9 @@ Terminal.jar:	Color.jar jline-3.9.0.jar Shell.java
 	printf "Manifest-Version: 1.0\nClass-Path: Color.jar jline-3.9.0.jar\nMain-Class: Shell\n" >> MANIFEST.MF
 	jar -cvfm Terminal.jar ./MANIFEST.MF Shell.class
 
+Color.jar: 		Color/Color.java
+	javac Color/Color.java
+	jar -cvf Color.jar Color/*.class
+
 clean:
-	rm Terminal.jar MANIFEST.MF Shell.class Terminal
+	rm Terminal.jar MANIFEST.MF Shell.class Terminal .makefile.swp Color.jar
